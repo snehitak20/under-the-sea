@@ -13,6 +13,7 @@
         <h4 class="timer">TIME: <span id="timer"></span></h4>
     </header>
 
+<!-- This section is the start page (when game begins) -->
     <div id="start-container" class="show">
         <div class="container start">
             <h1>Coding Quiz</h1>
@@ -20,14 +21,15 @@
             <button class="btn startend" id="start-game">START GAME</button>
         </div>
     </div>
-
+<!-- This section is the question pages -->
     <div id="question-container" class="hide">
         <div class="container questions">
             <div id="question"></div>
             <div id="answer-buttons" class="btn-grid"></div>
         </div>
     </div>
-
+<!-- This section is the end page (when the game is over) -->
+<!-- Includes the form to submit initials and high scores -->
     <div id="end-container" class="hide">
         <div class="container end">
             <div id="score-banner">
@@ -41,7 +43,8 @@
             </form>
         </div>
     </div>
-
+<!-- This section is the high-scores page -->
+<!-- Includes buttons to go back and clear high scores -->
     <div id="high-score-container" class="hide">
         <div class="high-scores container">
             <h1 class="high-score">HIGH SCORES</h1>
@@ -52,7 +55,7 @@
             <button class="btn" id="clear-high-scores">CLEAR HIGH SCORES</button>
         </div>
     </div>
-
+<!-- This section appears when a question is correct/wrong -->
     <div id="correct" class="hide">
         <h2>Correct :) </h2>
     </div>
@@ -60,7 +63,7 @@
     <div id="wrong" class="hide">
         <h2>Wrong :( </h2>
     </div>
-
+<!-- Link to JavaScript page -->
     <script src="./assets/script.js"></script>
 </body>
 </html>
