@@ -166,6 +166,38 @@ var showScore = function () {
     containerScoreEl.appendChild(scoreDisplay);
 }       
 
+// High score values
+var createHighScore = function(event) {
+    event.preventDefault() 
+    var initials = document.querySelector("#initials").value;
+    if (!initials) {
+      alert("Enter your intials!");
+      return;
+    }
 
+    formInitials.reset();
 
+    var HighScore = {
+        initials: initials,
+        score: score
+        } 
+  
+    //Sort scores
+    HighScores.push(HighScore);
+    HighScores.sort((a, b) => {return b.score-a.score});
 
+    // To resort the visible score
+    while (listHighScoreEl.firstChild) {
+        listHighScoreEl.removeChild(listHighScoreEl.firstChild);
+    }
+
+    // When there are multiple high scores, from greatest to least
+    for (var i = 0; i < HighScores.length; i++) {
+        var highscoreEl = document.createElement("li");
+        highscoreEl.ClassName = "high-score";
+        highscoreEl.innerHTML = HighScores[i].initials + " - " + HighScores[i].score;
+        listHighScoreEl.appendChild(highscoreEl);
+    }
+    saveHighScore();
+    displayHighScores();
+}
