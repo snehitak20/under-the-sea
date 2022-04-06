@@ -136,11 +136,11 @@ var answerCheck = function(event) {
     var selectedanswer = event.target
         if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText){
             answerCorrect();
-            score = score + 10;
+            score = score + 2;
         }
         else {
           answerWrong();
-          score = score - 10;
+          score = score - 1;
           timeleft = timeleft - 5;
         };
 
@@ -154,5 +154,18 @@ var answerCheck = function(event) {
             showScore();
         }
 }
+
+// For total score at the end of the game--> display as its own screen 
+var showScore = function () {
+    containerQuestionEl.classList.add("hide");
+    containerEndEl.classList.remove("hide");
+    containerEndEl.classList.add("show");
+  
+    var scoreDisplay = document.createElement("p");
+    scoreDisplay.innerText = ("Your final score is " + score + "!");
+    containerScoreEl.appendChild(scoreDisplay);
+}       
+
+
 
 
