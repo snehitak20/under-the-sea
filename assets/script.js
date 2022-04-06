@@ -220,6 +220,7 @@ var createHighScore = function(event) {
     HighScores.sort((a, b) => {return b.score-a.score});
 
     // To resort the visible score
+    // while: will loop thtough the code as long as the specified condition is true
     while (listHighScoreEl.firstChild) {
         listHighScoreEl.removeChild(listHighScoreEl.firstChild);
     }
@@ -236,16 +237,19 @@ var createHighScore = function(event) {
 }
 
 // To save the high score: use localStorage function
+// localStorage: stores the data to the webpage
+// JSON.stringify: allows for the data to become a string
 var saveHighScore = function () {
     localStorage.setItem("HighScores", JSON.stringify(HighScores))
 }
 
 // To reload the same high scores when the page is refreshed--> they should now be stored
+// JSON.parse: used to parse the data from the webpage to become an object in 
 var loadHighScore = function () {
     var LoadedHighScores = localStorage.getItem("HighScores")
         if (!LoadedHighScores) {
         return false;
-    }
+        }
   
     LoadedHighScores = JSON.parse(LoadedHighScores);
     LoadedHighScores.sort((a, b) => {return b.score-a.score})
@@ -258,7 +262,7 @@ var loadHighScore = function () {
         listHighScoreEl.appendChild(highscoreEl);
   
         HighScores.push(LoadedHighScores[i]);
-        }
+    }
 } 
 
 // To link high scores page from the main start page: 
@@ -286,7 +290,7 @@ var displayHighScores = function() {
     if (wrongEl.className = "show") {
         wrongEl.classList.remove("show");
         wrongEl.classList.add("hide");
-        }
+    }
 }
 
 // To clear the high scores page: 
