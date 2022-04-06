@@ -2,9 +2,9 @@
 
 ## Description
 
-The goal of this project is create a webpage that contains a timed coding quiz. Once the start button is pressed, the timer will start, and the first question will be presented. When a question is answered, another question will follow. When a question is answered incorrectly, there will be a timer penalty, and time will be subtracted from the clock. Once all the questions have been answered, or the timer has reached 0, the game is over. When the game is over, the user will be able to save their initials and score. When the high scores page is refreshed, the score will still be present. 
+The goal of this project is to create a webpage that contains a timed coding quiz. Once the start button is pressed, the timer will start, and the first question will be presented. When a question is answered, another question will follow. When a question is answered incorrectly, there will be a timer penalty, and time will be subtracted from the clock. Once all the questions have been answered, or the timer has reached 0, the game is over. When the game is over, the user will be able to save their initials and score. When the high scores page is refreshed, the score will still be present. 
 
-For this project, the main objective was to create a coding quiz from scratch. As such, HTML, CSS, and 
+For this project, the main objective was to create a coding quiz from scratch. As such, HTML, CSS, and JavaScript files were all written from scratch.
 
 In the HTML file, multiple `<div>` tags are used, but it is important to note that they are used along with multiple different "id" and "class" attributes. Most importantly, the `<div>` tags help to separate the webpage into different sections based on the information within those sections. `<button>` was used to help create the buttons that were necessary for this page to function. The `<form>` tag is necessary as it allows users to submit their initial and score to be stored in the high scores list. 
 
