@@ -12,6 +12,10 @@ In the CSS file, the use of the `id` and `class` attributes come into play as th
 
 The main work was within the JavaScript file. Most importantly, it was important to define all of the variables that are used within functions. Arrays were specifically created for high scores, questions, and the corresponding answer choices. A key function that stands out is `var startGame = function() {`; with this function, the game starts, the timer starts, and the first question choice is revealed. To have the questions appear randomly, the `Math.random` was used to randomize the way that questions appeared. `addEventListener` is used throughout the JavaScript file as it listens for the click from the mouse, and the event will occur afterwards. `localStorage` is used to store the high scores and initials to the local machine, and allows for these elements to be stored even when the page is refreshed. Lastly, throughout the JavaScript, CSS, and HTML file, multiple comments are written to note what the code is actually doing. 
 
+<img src="./assets/js1.png" alt="JavaScript code snippet1 with comments">
+<img src="./assets/js2.png" alt="JavaScript code snippet2 with comments">
+<img src="./assets/quiz.png" alt="Quiz startpage">
+
 [Link to webpage](https://snehitak20.github.io/under-the-sea/)
 
 ## Technologies Used: 
@@ -71,6 +75,11 @@ To start the quiz, press the start button. Complete the quiz, and enter your ini
 ## Credits
 
 Initial prompt given by UC Berkeley Extension, Coding Bootcamp. 
+
+## Reflection
+
+For this project, it was important to learn how to define global variables. Without them, functions could not have been written appropriately. It was also important to learn about the use of `localStorage, JSON.parse(), and JSON.stringify` in order to store data from the webpage, and have it still be present when refreshing the webpage. Lastly, the use of 
+`(Math.random())` to generate randomized questions was an important function to learn. This project stands out because it has a functional coding quiz where the user can enter their initial and high scores at the end of the quiz. 
 
 ## License
 Licensed under the [MIT](https://choosealicense.com/licenses/mit/#) license. 
