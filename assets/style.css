@@ -1,7 +1,9 @@
+/* Universal selector */
 * {
     box-sizing: border-box;
 }
-  
+
+/* Allows for the use of var() later on down the page--> allows for colors to be pre-written out */
 :root {
     --primary: #0a0808c5;
     --secondary: #a10770;
@@ -10,6 +12,7 @@
     font-size: 62.5%;
 }
 
+/* This selects for everything within the <body> */
 body {
     background: #ededed;
     color: var(--secondary);
@@ -18,7 +21,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
   
-
+/* This selects for everything within the <header> */
 header {
     display: flex;
     justify-content: space-between;
@@ -26,26 +29,29 @@ header {
     width: 85%;
 }
 
+/* When the mouse hovers over the "View High Scores" button--> selects for these attributes */
 #view-high-scores:hover {
     cursor: pointer;
     color: var(--tertiary);
 }
 
+/* Specifically selects for the <h4> that is within the <header> */
 header h4 {
     padding-left: 20px;
     font-size: 2.0rem;
     display: inline;
 }
-  
+
+/* Specifically selects here for the timer */
 .timer {
     font-size: 2.0rem;
-    color: var(--primary);
+    color: var(--secondary);
     display: inline;
     text-align: right;
     padding-right: 20px;
 }
 
-
+/* Flex-direction: defines how those within the container will be displayed */
 .container {
     padding: 20px;
     flex-direction: column;
@@ -53,18 +59,20 @@ header h4 {
     margin: auto;
 }
 
-  
+/* Selects for the <h1> */
 h1 {
     color: var(--primary);
     font-size: 3.0rem;
     font-weight: bold;
 }
 
+/* Selects for the <p> */
 p {
     color: var(--primary);
     font-size: 2.0rem;
 }
 
+/* This is for the start button characteristics */
 .start {
     align-items: center;
     text-align: center;
@@ -74,6 +82,8 @@ p {
      text-align: center;
 }
 
+/* This is specifically defining for the questions. */
+/* Flex-start: items will be packed towards the start of the flex-direction */
 .questions {
     align-items: flex-start;
     justify-content: flex-start;
@@ -117,7 +127,7 @@ p {
       text-align: left;
 }
 
-
+/* This specifies for the button */
 .btn {
     background: var(--secondary);
     color: var(--white);
@@ -128,6 +138,7 @@ p {
     margin-top: 10px;
 }
 
+/* For when the mouse hovers over the button */
 .btn:hover {
     background: var(--tertiary);
     border-radius: 10px;
@@ -135,6 +146,7 @@ p {
     cursor: pointer;
 }
 
+/* When the mouse is actively clicking over the button */
 .btn:active {
     border: none;
     outline: none;
@@ -145,6 +157,7 @@ p {
     outline: none;
 }
 
+/* This is for the layout of the answer choice buttons */
 .btn-grid {
     display: grid;
     grid-template-rows: repeat(4, auto);
@@ -163,6 +176,7 @@ p {
     font-size: 1.0vw;
 }
 
+/* Specifically for how the high scores page will look like */
 .banner {
     font-size: 15px;
     text-align: center;
@@ -177,16 +191,17 @@ p {
     padding-top: 5px;
 }
 
- 
+/* When the list is created on the high scores page */
 ol {
     list-style-type: number;
 }
 
+/* The odd numbers in the list will be highlighted with the below background color */
 li:nth-child(odd) {
     background-color: rgba(228, 151, 164, 0.5);;
 }
 
-
+/* Selects for the text-size of what appears on the high-scores list */
 li {
     font-size: 1.5vw;
 }
