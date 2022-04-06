@@ -93,3 +93,40 @@ var startGame = function() {
 }
 
 // Next question on the quiz appears
+var setQuestion = function() {
+    resetAnswers()
+    displayQuestion(arrayShuffledQuestions[QuestionIndex])
+}
+
+// Display question and answer choices: 
+var displayQuestion = function(index) {
+    questionEl.innerText = index.q;
+    for (var i = 0; i < index.choices.length; i++) {
+        var answerbutton = document.createElement('button');
+        answerbutton.innerText = index.choices[i].choice;
+        answerbutton.classList.add('btn');
+        answerbutton.classList.add('answerbtn');
+        answerbutton.addEventListener("click", answerCheck);
+        answerbuttonsEl.appendChild(answerbutton);
+    }
+}
+
+// When there is a correct answer on the screen:
+var answerCorrect = function() {
+    if (correctEl.className = "hide") {
+        correctEl.classList.remove("hide");
+        correctEl.classList.add("banner");
+        wrongEl.classList.remove("banner");
+        wrongEl.classList.add("hide");
+    }
+} 
+
+// When there is a wrong answer on the screen: 
+var answerWrong = function() {
+    if (wrongEl.className = "hide") {
+        wrongEl.classList.remove("hide");
+        wrongEl.classList.add("banner");
+        correctEl.classList.remove("banner");
+        correctEl.classList.add("hide");
+    }
+}
