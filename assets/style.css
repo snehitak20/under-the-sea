@@ -18,7 +18,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
   
-/* Header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,7 @@ header {
 
 #view-high-scores:hover {
     cursor: pointer;
-    color: var(--tertiary)
+    color: var(--tertiary);
 }
 
 header h4 {
@@ -45,7 +45,7 @@ header h4 {
     padding-right: 20px;
 }
 
-  /*Main content */
+
 .container {
     padding: 20px;
     flex-direction: column;
@@ -109,7 +109,7 @@ p {
 #question {
     color: var(--primary);
     text-align: left;
-    font-size: 3.0rem;
+    font-size: 2.0rem;
     font-weight: bold;
 }
 
@@ -117,7 +117,7 @@ p {
       text-align: left;
 }
 
-  /*Button Styling */
+
 .btn {
     background: var(--secondary);
     color: var(--white);
@@ -160,10 +160,8 @@ p {
 .answerbtn {
     width: 50%;
     text-align: left;
-    font-size: 3.0vw;
+    font-size: 1.0vw;
 }
-
- /* correct/wrong styling */
 
 .banner {
     font-size: 15px;
@@ -179,7 +177,6 @@ p {
     padding-top: 5px;
 }
 
-/* List for High Scores */
  
 ol {
     list-style-type: number;
@@ -191,11 +188,10 @@ li:nth-child(odd) {
 
 
 li {
-    font-size: 4.0vw;
+    font-size: 1.5vw;
 }
 
-/* media query for smaller screens */
-
+/* Media queries */
 @media screen and (max-width: 1024px) {
     .btn {
         width: 100%;

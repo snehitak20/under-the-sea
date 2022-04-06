@@ -53,7 +53,33 @@ var questions = [
      a: 'C. ==',
      choices: [{choice: 'A. ='}, {choice: 'B. >'}, {choice: 'C. =='}, {choice: 'D. !='}] 
     },
+    {q: 'What is getItem commonly used for?', 
+     a: 'B. Local storage', 
+     choices: [{choice: 'A. Adding pizzazz'}, {choice: 'B. Local storage'}, {choice: 'C. Instacart orders'}, {choice: 'D. To name an element'}]
+    },
 ];
+
+// When the go back button is used from the high scores page: 
+var renderStartPage = function () {
+    containerHighScoresEl.classList.add("hide")
+    containerHighScoresEl.classList.remove("show")
+    containerStartEl.classList.remove("hide")
+    containerStartEl.classList.add("show")
+    containerScoreEl.removeChild(containerScoreEl.lastChild)
+    QuestionIndex = 0
+    gameover = ""
+    timerEl.textContent = 0
+    score = 0
+  
+    if (correctEl.className = "show") {
+        correctEl.classList.remove("show");
+        correctEl.classList.add("hide");
+    }
+    if (wrongEl.className = "show") {
+        wrongEl.classList.remove("show");
+        wrongEl.classList.add("hide");
+    }
+}
 
 // Timer function
 // Sets timer to 30 seconds to begin with
@@ -63,7 +89,7 @@ var setTime = function () {
 // Consistently checks timer and counts down every second
 var timercheck = setInterval(function() {
     timerEl.innerText = timeleft;
-    timeleft--;
+    timeleft--
     
     // When game is over, or if there is still time left
     if (gameover) {
@@ -74,7 +100,7 @@ var timercheck = setInterval(function() {
         showScore();
         timerEl.innerText = 0;
         clearInterval(timercheck);
-        }
+    }
   
     }, 1000)
 }
@@ -88,8 +114,8 @@ var startGame = function() {
 
     // Shuffle questions so that they appear in random order--> use Math function to help with the randomness
     arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5);
-    setTime();
-    setQuestion();
+    setTime()
+    setQuestion()
 }
 
 // Next question on the quiz appears
@@ -98,16 +124,23 @@ var setQuestion = function() {
     displayQuestion(arrayShuffledQuestions[QuestionIndex])
 }
 
+// Remove answer choice buttons
+var resetAnswers = function() {
+    while (answerbuttonsEl.firstChild) {
+        answerbuttonsEl.removeChild(answerbuttonsEl.firstChild);
+    }
+}
+
 // Display question and answer choices: 
 var displayQuestion = function(index) {
-    questionEl.innerText = index.q;
+    questionEl.innerText = index.q
     for (var i = 0; i < index.choices.length; i++) {
-        var answerbutton = document.createElement('button');
-        answerbutton.innerText = index.choices[i].choice;
-        answerbutton.classList.add('btn');
-        answerbutton.classList.add('answerbtn');
-        answerbutton.addEventListener("click", answerCheck);
-        answerbuttonsEl.appendChild(answerbutton);
+        var answerbutton = document.createElement('button')
+        answerbutton.innerText = index.choices[i].choice
+        answerbutton.classList.add('btn')
+        answerbutton.classList.add('answerbtn')
+        answerbutton.addEventListener("click", answerCheck)
+        answerbuttonsEl.appendChild(answerbutton)
     }
 }
 
@@ -201,3 +234,82 @@ var createHighScore = function(event) {
     saveHighScore();
     displayHighScores();
 }
+
+// To save the high score: use localStorage function
+var saveHighScore = function () {
+    localStorage.setItem("HighScores", JSON.stringify(HighScores))
+}
+
+// To reload the same high scores when the page is refreshed--> they should now be stored
+var loadHighScore = function () {
+    var LoadedHighScores = localStorage.getItem("HighScores")
+        if (!LoadedHighScores) {
+        return false;
+    }
+  
+    LoadedHighScores = JSON.parse(LoadedHighScores);
+    LoadedHighScores.sort((a, b) => {return b.score-a.score})
+  
+  
+    for (var i = 0; i < LoadedHighScores.length; i++) {
+        var highscoreEl = document.createElement("li");
+        highscoreEl.ClassName = "high-score";
+        highscoreEl.innerText = LoadedHighScores[i].initials + " - " + LoadedHighScores[i].score;
+        listHighScoreEl.appendChild(highscoreEl);
+  
+        HighScores.push(LoadedHighScores[i]);
+        }
+} 
+
+// To link high scores page from the main start page: 
+var displayHighScores = function() {
+    containerHighScoresEl.classList.remove("hide");
+    containerHighScoresEl.classList.add("show");
+    gameover = "true"
+  
+    if (containerEndEl.className = "show") {
+        containerEndEl.classList.remove("show");
+        containerEndEl.classList.add("hide");
+        }
+    if (containerStartEl.className = "show") {
+        containerStartEl.classList.remove("show");
+        containerStartEl.classList.add("hide");
+        }
+    if (containerQuestionEl.className = "show") {
+        containerQuestionEl.classList.remove("show");
+        containerQuestionEl.classList.add("hide");
+        }
+    if (correctEl.className = "show") {
+        correctEl.classList.remove("show");
+        correctEl.classList.add("hide");
+    }
+    if (wrongEl.className = "show") {
+        wrongEl.classList.remove("show");
+        wrongEl.classList.add("hide");
+        }
+}
+
+// To clear the high scores page: 
+var clearScores = function () {
+    HighScores = [];
+  
+    while (listHighScoreEl.firstChild) {
+        listHighScoreEl.removeChild(listHighScoreEl.firstChild);
+    }
+  
+    localStorage.clear(HighScores);
+}
+
+loadHighScore()
+
+//Button Clicks: 
+    // On start click, start game
+    btnStartEl.addEventListener("click", startGame);
+    // When using submit button: click to enter
+    formInitials.addEventListener("submit", createHighScore);
+    // To view the high scores 
+    ViewHighScoreEl.addEventListener("click", displayHighScores);
+    // Go back button
+    btnGoBackEl.addEventListener("click", renderStartPage);
+    // Clear scores button
+    btnClearScoresEl.addEventListener("click", clearScores);
