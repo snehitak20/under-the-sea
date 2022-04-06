@@ -15,7 +15,7 @@ var btnStartEl = document.querySelector("#start-game");
 var btnGoBackEl = document.querySelector("#go-back");
 var btnClearScoresEl = document.querySelector("#clear-high-scores");
 
-// Question, answer, and timer elements
+// Question, answer, and timer variables
 var questionEl = document.getElementById("question")
 var answerbuttonsEl = document.getElementById("answer-buttons")
 var timerEl = document.querySelector("#timer");
@@ -130,3 +130,29 @@ var answerWrong = function() {
         correctEl.classList.add("hide");
     }
 }
+
+// To check if answer is actually correct: 
+var answerCheck = function(event) {
+    var selectedanswer = event.target
+        if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText){
+            answerCorrect();
+            score = score + 10;
+        }
+        else {
+          answerWrong();
+          score = score - 10;
+          timeleft = timeleft - 5;
+        };
+
+        // To move to next question, and see if there are other questions
+        QuestionIndex++
+        if (arrayShuffledQuestions.length > QuestionIndex + 1) {
+            setQuestion();
+        }   
+        else {
+            gameover = "true";
+            showScore();
+        }
+}
+
+
