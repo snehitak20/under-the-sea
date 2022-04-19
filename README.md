@@ -1,5 +1,9 @@
 # under-the-sea
 
+## Deployed Webpage 
+
+[Link to webpage](https://snehitak20.github.io/under-the-sea/)
+
 ## Description
 
 The goal of this project is to create a webpage that contains a timed coding quiz. Once the start button is pressed, the timer will start, and the first question will be presented. When a question is answered, another question will follow. When a question is answered incorrectly, there will be a timer penalty, and time will be subtracted from the clock. Once all the questions have been answered, or the timer has reached 0, the game is over. When the game is over, the user will be able to save their initials and score. When the high scores page is refreshed, the score will still be present. 
@@ -12,11 +16,9 @@ In the CSS file, the use of the `id` and `class` attributes come into play as th
 
 The main work was within the JavaScript file. Most importantly, it was important to define all of the variables that are used within functions. Arrays were specifically created for high scores, questions, and the corresponding answer choices. A key function that stands out is `var startGame = function() {`; with this function, the game starts, the timer starts, and the first question choice is revealed. To have the questions appear randomly, the `Math.random` was used to randomize the way that questions appeared. `addEventListener` is used throughout the JavaScript file as it listens for the click from the mouse, and the event will occur afterwards. `localStorage` is used to store the high scores and initials to the local machine, and allows for these elements to be stored even when the page is refreshed. Lastly, throughout the JavaScript, CSS, and HTML file, multiple comments are written to note what the code is actually doing. 
 
+<img src="./assets/quiz.png" alt="Quiz startpage">
 <img src="./assets/js1.png" alt="JavaScript code snippet1 with comments">
 <img src="./assets/js2.png" alt="JavaScript code snippet2 with comments">
-<img src="./assets/quiz.png" alt="Quiz startpage">
-
-[Link to webpage](https://snehitak20.github.io/under-the-sea/)
 
 ## Technologies Used: 
 - HTML5
@@ -83,3 +85,10 @@ For this project, it was important to learn how to define global variables. With
 
 ## License
 Licensed under the [MIT](https://choosealicense.com/licenses/mit/#) license. 
+
+## Contributors
+
+Feel free to reach out to me at the following: 
+* [LinkedIn](https://www.linkedin.com/in/snehita-kolli-0abb23b1/)
+* [GitHub](https://github.com/snehitak20)
+
